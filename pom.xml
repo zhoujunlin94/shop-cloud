@@ -7,6 +7,9 @@
     <groupId>io.github.zhoujunlin94</groupId>
     <artifactId>shop-cloud</artifactId>
     <version>1.0.0</version>
+    <modules>
+        <module>product-srv</module>
+    </modules>
 
     <packaging>pom</packaging>
 
