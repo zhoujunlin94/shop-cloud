@@ -1,3 +1,8 @@
+server:
+  port: 8081
+
 spring:
   profiles:
     include: db
+  application:
+    name: server-product

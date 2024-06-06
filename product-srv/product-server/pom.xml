@@ -25,10 +25,6 @@
 
         <dependency>
             <groupId>io.github.zhoujunlin94</groupId>
-            <artifactId>meet-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.zhoujunlin94</groupId>
             <artifactId>meet-tk_mybatis</artifactId>
         </dependency>
         <dependency>
