@@ -9,7 +9,7 @@ spring:
         password: root
         # hikari连接池配置 对应 HikariConfig 配置属性类
         hikari:
-          poolName: HikariCP-product
+          poolName: HikariCP-order
           #最小空闲连接数
           minimumIdle: 20
           # 空闲连接存活最大时间，默认10分钟
