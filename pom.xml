@@ -9,6 +9,7 @@
     <version>1.0.0</version>
     <modules>
         <module>product-srv</module>
+        <module>order-srv</module>
     </modules>
 
     <packaging>pom</packaging>

@@ -1,0 +1,8 @@
+server:
+  port: 8082
+
+spring:
+  profiles:
+    include: db
+  application:
+    name: server-order

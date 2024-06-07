@@ -1,6 +1,6 @@
 package io.github.zhoujunlin94.server.product.controller;
 
-import io.github.zhoujunlin94.api.product.ProductDTO;
+import io.github.zhoujunlin94.api.product.dto.ProductDTO;
 import io.github.zhoujunlin94.server.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;

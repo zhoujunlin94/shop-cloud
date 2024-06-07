@@ -1,4 +1,4 @@
-package io.github.zhoujunlin94.api.product;
+package io.github.zhoujunlin94.api.product.dto;
 
 import lombok.Data;
 
