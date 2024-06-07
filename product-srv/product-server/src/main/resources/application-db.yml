@@ -25,9 +25,9 @@ spring:
           # 连接测试query
           connectionTestQuery: SELECT 1
         mybatis:
-          typeAliasesPackage: io.github.zhoujunlin94.server.product.repository.entity
+          typeAliasesPackage: io.github.zhoujunlin94.server.product.repository.db.entity
           mapperLocation: classpath:mybatis/*.xml
-          basePackages: io.github.zhoujunlin94.server.product.repository.mapper
+          basePackages: io.github.zhoujunlin94.server.product.repository.db.mapper
           interceptors:
             - clazz: com.github.pagehelper.PageInterceptor
               properties:

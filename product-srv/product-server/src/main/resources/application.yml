@@ -3,6 +3,6 @@ server:
 
 spring:
   profiles:
-    include: db
+    include: db, nacos
   application:
     name: server-product

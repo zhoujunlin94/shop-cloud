@@ -1,4 +1,4 @@
-package io.github.zhoujunlin94.server.product.repository.entity;
+package io.github.zhoujunlin94.server.product.repository.db.entity;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

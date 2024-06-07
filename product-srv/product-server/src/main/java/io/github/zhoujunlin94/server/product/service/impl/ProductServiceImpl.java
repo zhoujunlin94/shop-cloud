@@ -2,7 +2,7 @@ package io.github.zhoujunlin94.server.product.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import io.github.zhoujunlin94.api.product.dto.ProductDTO;
-import io.github.zhoujunlin94.server.product.repository.handler.ProductHandler;
+import io.github.zhoujunlin94.server.product.repository.db.handler.ProductHandler;
 import io.github.zhoujunlin94.server.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -36,6 +36,15 @@
             <groupId>io.github.zhoujunlin94</groupId>
             <artifactId>meet-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.zhoujunlin94</groupId>
+            <artifactId>meet-feign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
 
     </dependencies>
 

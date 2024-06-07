@@ -1,8 +1,14 @@
 server:
-  port: 8082
+  port: 8091
 
 spring:
   profiles:
-    include: db
+    include: db, nacos
   application:
     name: server-order
+
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true

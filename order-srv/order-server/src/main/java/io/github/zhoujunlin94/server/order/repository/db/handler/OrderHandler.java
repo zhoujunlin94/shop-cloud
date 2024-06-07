@@ -1,8 +1,8 @@
-package io.github.zhoujunlin94.server.order.repository.handler;
+package io.github.zhoujunlin94.server.order.repository.db.handler;
 
 import io.github.zhoujunlin94.meet.tk_mybatis.handler.TKHandler;
-import io.github.zhoujunlin94.server.order.repository.entity.Order;
-import io.github.zhoujunlin94.server.order.repository.mapper.OrderMapper;
+import io.github.zhoujunlin94.server.order.repository.db.entity.Order;
+import io.github.zhoujunlin94.server.order.repository.db.mapper.OrderMapper;
 import org.springframework.stereotype.Repository;
 
 /**

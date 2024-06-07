@@ -1,8 +1,8 @@
-package io.github.zhoujunlin94.server.product.repository.handler;
+package io.github.zhoujunlin94.server.product.repository.db.handler;
 
 import io.github.zhoujunlin94.meet.tk_mybatis.handler.TKHandler;
-import io.github.zhoujunlin94.server.product.repository.entity.Product;
-import io.github.zhoujunlin94.server.product.repository.mapper.ProductMapper;
+import io.github.zhoujunlin94.server.product.repository.db.entity.Product;
+import io.github.zhoujunlin94.server.product.repository.db.mapper.ProductMapper;
 import org.springframework.stereotype.Repository;
 
 /**

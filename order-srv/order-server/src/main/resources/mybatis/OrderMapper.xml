@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.github.zhoujunlin94.server.order.repository.mapper.OrderMapper">
-  <resultMap id="BaseResultMap" type="io.github.zhoujunlin94.server.order.repository.entity.Order">
+<mapper namespace="io.github.zhoujunlin94.server.order.repository.db.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="io.github.zhoujunlin94.server.order.repository.db.entity.Order">
     <!--@mbg.generated generated on Fri Jun 07 19:39:07 CST 2024.-->
     <!--@Table shop_order-->
     <id column="id" jdbcType="INTEGER" property="id" />
