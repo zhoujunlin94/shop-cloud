@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    sentinel:
+      transport:
+        #        控制台地址
+        dashboard: localhost:8858
+      #        跟控制台交互的端口
+      #        port: 8719
+      #      不将上下文链路整合   显示完整链路
+      web-context-unify: false
