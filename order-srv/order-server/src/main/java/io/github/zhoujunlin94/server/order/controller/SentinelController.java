@@ -44,6 +44,7 @@ public class SentinelController {
 
     @GetMapping("test2")
     public String test2() {
+        // 测试服务雪崩
         return "测试高并发情况下请求此接口";
     }
 
@@ -55,8 +56,37 @@ public class SentinelController {
 
     @GetMapping("queryGood")
     public String queryGood() {
+        // 测试 流控
         goodService.queryGood();
         return "查询商品";
+    }
+
+    @SneakyThrows
+    @GetMapping("fallback1")
+    public String fallback1() {
+        // 测试熔断  RT响应时间  慢调用比例
+        TimeUnit.SECONDS.sleep(2L);
+        return "fallback1";
+    }
+
+    int i = 0;
+
+    @GetMapping("fallback2")
+    public String fallback2() {
+        // 测试熔断  异常比例
+        if (++i % 3 == 0) {
+            throw new RuntimeException("故意抛出一个异常");
+        }
+        return "fallback2";
+    }
+
+    @GetMapping("fallback3")
+    public String fallback3(String flg) {
+        // 测试熔断  异常数
+        if ("error".equals(flg)) {
+            throw new RuntimeException("故意抛出一个异常");
+        }
+        return "fallback3";
     }
 
 }
