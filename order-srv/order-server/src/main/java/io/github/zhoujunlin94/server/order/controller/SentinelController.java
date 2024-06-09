@@ -1,5 +1,7 @@
 package io.github.zhoujunlin94.server.order.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import io.github.zhoujunlin94.server.order.app.sentinel.SentinelResourceHandler;
 import io.github.zhoujunlin94.server.order.service.GoodService;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -87,6 +89,34 @@ public class SentinelController {
             throw new RuntimeException("故意抛出一个异常");
         }
         return "fallback3";
+    }
+
+    @GetMapping("hotSpot1")
+    @SentinelResource("hotSpot1")
+    public String hotSpot1(Integer productId) {
+        // 测试热点规则  配置热点商品id进行限流  其他商品不受控制
+        // @SentinelResource 会直接返回异常 500  需要进行处理
+        return "hotSpot1";
+    }
+
+    // 系统规则:  监控应用服务器的 Load  RT   QPS  线程数  CPU等指标判断是否需要拒绝服务
+
+
+    @GetMapping("auth1")
+    public String auth1(String deviceName) {
+        // 测试授权规则   配置黑、白名单  例如当deviceName为ios时可以访问（白名单），其他设备无法访问
+        return "auth1";
+    }
+
+
+    @GetMapping("anno1")
+    @SentinelResource(value = "anno1",
+            blockHandlerClass = SentinelResourceHandler.class, blockHandler = "annoBlockHandler")
+    public String anno1(String flg) {
+        if ("error".equals(flg)) {
+            throw new RuntimeException("故意抛出一个异常");
+        }
+        return "anno1";
     }
 
 }
