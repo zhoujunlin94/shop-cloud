@@ -5,3 +5,16 @@ GET http://127.0.0.1/server-product/api/v1/product/findById?productId=1
 
 ### 订单服务
 POST http://127.0.0.1/server-order/api/v1/order/createOrder?productId=2&userId=10025
+
+
+
+###  自定义路由规则
+### 商品服务
+GET http://127.0.0.1/shop-product/api/v1/product/findById?productId=1
+
+### 订单服务
+POST http://127.0.0.1/shop-order/api/v1/order/createOrder?productId=3&userId=10025
+
+### 全局过滤器
+GET http://127.0.0.1/shop-product/api/v1/product/findById?productId=1
+token: rrrr

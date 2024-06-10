@@ -12,3 +12,18 @@ spring:
         locator:
           #          让gateway发现nacos中的微服务
           enabled: true
+      routes:
+        - id: product_route
+          # 满足下方断言的路由负载均衡到server-product微服务
+          uri: lb://server-product
+          predicates:
+            - Path=/shop-product/**
+          filters:
+            # 截去路径中的第一个前缀   这里是shop-product
+            - StripPrefix=1
+        - id: order
+          uri: lb://server-order
+          predicates:
+            - Path=/shop-order/**
+          filters:
+            - StripPrefix=1
