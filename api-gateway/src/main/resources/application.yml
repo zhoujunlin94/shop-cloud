@@ -19,7 +19,7 @@ spring:
           predicates:
             - Path=/shop-product/**
           filters:
-            # 截去路径中的第一个前缀   这里是shop-product
+            # 局部过滤器（命名规范：StripPrefixGatewayFilterFactory）：截去路径中的第一个前缀   这里是shop-product
             - StripPrefix=1
         - id: order
           uri: lb://server-order
@@ -27,3 +27,5 @@ spring:
             - Path=/shop-order/**
           filters:
             - StripPrefix=1
+            # 自定义过滤器  用户打印接口执行时间
+            - Time=true
