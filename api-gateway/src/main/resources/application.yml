@@ -3,7 +3,7 @@ server:
 
 spring:
   profiles:
-    include: nacos
+    include: nacos, sentinel
   application:
     name: api-gateway
   cloud:
@@ -21,7 +21,7 @@ spring:
           filters:
             # 局部过滤器（命名规范：StripPrefixGatewayFilterFactory）：截去路径中的第一个前缀   这里是shop-product
             - StripPrefix=1
-        - id: order
+        - id: order_route
           uri: lb://server-order
           predicates:
             - Path=/shop-order/**

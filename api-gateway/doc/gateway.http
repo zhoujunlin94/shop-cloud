@@ -15,6 +15,10 @@ GET http://127.0.0.1/shop-product/api/v1/product/findById?productId=1
 ### 订单服务
 POST http://127.0.0.1/shop-order/api/v1/order/createOrder?productId=3&userId=10025
 
+###
+GET http://127.0.0.1/shop-order/api/v1/sentinel/test2
+token: test
+
 ### 全局过滤器
 GET http://127.0.0.1/shop-product/api/v1/product/findById?productId=1
 token: test

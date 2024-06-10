@@ -52,7 +52,7 @@ public class AuthGlobalFilter implements GlobalFilter {
 
         // <4> 通过 token 获取不到 userId，说明认证不通过
         if (Objects.isNull(userId)) {
-            exchange.getResponse().getHeaders().setContentType(MediaType.APPLICATION_JSON);
+            response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
             // 响应 401 状态码
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
             // 响应提示
