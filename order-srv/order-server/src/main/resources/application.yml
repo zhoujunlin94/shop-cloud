@@ -2,12 +2,12 @@ server:
   port: 8091
   tomcat:
     threads:
-      #      tomcat线程最大并发值
+      # tomcat线程最大并发值
       max: 10
 
 spring:
   profiles:
-    include: db, nacos, sentinel
+    include: common
   application:
     name: server-order
 

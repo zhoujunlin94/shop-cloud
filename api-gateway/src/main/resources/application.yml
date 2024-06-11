@@ -3,14 +3,14 @@ server:
 
 spring:
   profiles:
-    include: nacos, sentinel
+    include: common
   application:
     name: api-gateway
   cloud:
     gateway:
       discovery:
         locator:
-          #          让gateway发现nacos中的微服务
+          # 让gateway发现nacos中的微服务
           enabled: true
       routes:
         - id: product_route

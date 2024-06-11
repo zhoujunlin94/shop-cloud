@@ -1,7 +1,6 @@
 spring:
   multiple:
     datasource:
-      # 数据源-1
       product:
         url: jdbc:mysql://127.0.0.1:3306/order?useSSL=false&characterEncoding=utf-8&autoReconnect=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useUnicode=true&autoReconnect=true&failOverReadOnly=false&useAffectedRows=true
         driverClassName: com.mysql.cj.jdbc.Driver
@@ -34,3 +33,16 @@ spring:
                 helperDialect: mysql
                 reasonable: true
                 supportMethodsArguments: true
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        # 控制台地址
+        dashboard: localhost:8858
+      # 跟控制台交互的端口
+      #port: 8719
+      #不将上下文链路整合   显示完整链路
+      web-context-unify: false
