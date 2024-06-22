@@ -18,10 +18,16 @@ public class XxlJobConfig {
     private String adminAddresses;
 
     @Value("${xxl.job.executor.appname}")
-    private String appname;
+    private String appName;
+
+    @Value("${xxl.job.executor.ip:}")
+    private String ip;
 
     @Value("${xxl.job.executor.port}")
     private int port;
+
+    @Value("${xxl.job.accessToken:}")
+    private String accessToken;
 
     @Value("${xxl.job.executor.logpath}")
     private String logPath;
@@ -30,16 +36,18 @@ public class XxlJobConfig {
     private int logRetentionDays;
 
 
-    @Bean
-    public XxlJobSpringExecutor xxlJobExecutor() {
+    @Bean(initMethod = "start", destroyMethod = "destroy")
+    public XxlJobSpringExecutor xxlJobSpringExecutor() {
         log.info(">>>>>>>>>>> xxl-job config init.");
         XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
         xxlJobSpringExecutor.setAdminAddresses(adminAddresses);
-        xxlJobSpringExecutor.setAppName(appname);
-        xxlJobSpringExecutor.setIp("127.0.0.1");
+        xxlJobSpringExecutor.setAppName(appName);
+        xxlJobSpringExecutor.setIp(ip);
         xxlJobSpringExecutor.setPort(port);
+        xxlJobSpringExecutor.setAccessToken(accessToken);
         xxlJobSpringExecutor.setLogPath(logPath);
         xxlJobSpringExecutor.setLogRetentionDays(logRetentionDays);
+
         return xxlJobSpringExecutor;
     }
 
