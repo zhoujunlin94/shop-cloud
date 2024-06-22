@@ -11,6 +11,7 @@
         <module>product-srv</module>
         <module>order-srv</module>
         <module>api-gateway</module>
+        <module>job-executor</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -21,10 +22,11 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <lombok.version>1.18.24</lombok.version>
         <spring.boot.version>2.6.11</spring.boot.version>
         <spring.cloud.version>2021.0.4</spring.cloud.version>
         <spring.cloud.alibaba.version>2021.0.4.0</spring.cloud.alibaba.version>
+
+        <xxl-job.version>2.1.2</xxl-job.version>
 
         <meet.version>1.1.5</meet.version>
     </properties>
@@ -78,6 +80,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
