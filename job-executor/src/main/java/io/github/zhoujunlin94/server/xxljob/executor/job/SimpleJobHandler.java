@@ -25,8 +25,10 @@ import org.springframework.stereotype.Component;
 public class SimpleJobHandler extends IJobHandler {
 
     @Override
-    public ReturnT<String> execute(String s) throws Exception {
+    public ReturnT<String> execute(String params) throws Exception {
+        log.warn("SimpleJobHandler execute params:{}", params);
         XxlJobLogger.log("hello, current time is:{}", DateUtil.now());
+        log.warn("hello, current time is:{}", DateUtil.now());
         return ReturnT.SUCCESS;
     }
 
