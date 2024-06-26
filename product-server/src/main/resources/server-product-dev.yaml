@@ -1,6 +1,0 @@
-server:
-  port: 8085
-
-product:
-  mysql:
-    db: product

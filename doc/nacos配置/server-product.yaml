@@ -9,6 +9,12 @@ spring:
       #     是否覆盖系统属性
       override-system-properties: false
 
+server:
+  port: 8085
+
+mysql:
+  db: product
+
 app:
   config:
     name: Product-Refresh

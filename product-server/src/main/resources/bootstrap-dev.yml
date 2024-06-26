@@ -4,7 +4,9 @@ spring:
       config:
         server-addr: 127.0.0.1:8848
         file-extension: yaml
+        group: dev
         shared-configs:
-          #          不同微服务之间相同的配置共享  例如数据库，redis等共享链接信息
-          - dataId: shop-common.yaml
+          # 不同微服务之间相同的配置共享  例如数据库，redis等共享链接信息
+          - dataId: infrastructure.yaml
             refresh: true
+            group: dev

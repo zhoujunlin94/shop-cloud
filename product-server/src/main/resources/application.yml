@@ -2,10 +2,10 @@ spring:
   multiple:
     datasource:
       product:
-        url: jdbc:mysql://${product.mysql.host}:${product.mysql.port}/${product.mysql.db}?useSSL=false&characterEncoding=utf-8&autoReconnect=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useUnicode=true&autoReconnect=true&failOverReadOnly=false&useAffectedRows=true
+        url: jdbc:mysql://${mysql.host}:${mysql.port}/${mysql.db}?useSSL=false&characterEncoding=utf-8&autoReconnect=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useUnicode=true&autoReconnect=true&failOverReadOnly=false&useAffectedRows=true
         driverClassName: com.mysql.cj.jdbc.Driver
-        username: ${product.mysql.username}
-        password: ${product.mysql.password}
+        username: ${mysql.username}
+        password: ${mysql.password}
         # hikari连接池配置 对应 HikariConfig 配置属性类
         hikari:
           poolName: HikariCP-product
