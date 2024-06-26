@@ -18,11 +18,6 @@
 
     <dependencies>
         <dependency>
-            <artifactId>model</artifactId>
-            <groupId>io.github.zhoujunlin94</groupId>
-        </dependency>
-
-        <dependency>
             <groupId>io.github.zhoujunlin94</groupId>
             <artifactId>meet-tk_mybatis</artifactId>
         </dependency>

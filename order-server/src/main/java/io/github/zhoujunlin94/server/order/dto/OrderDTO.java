@@ -1,4 +1,4 @@
-package io.github.zhoujunlin94.model.api.dto.order;
+package io.github.zhoujunlin94.server.order.dto;
 
 import lombok.Data;
 

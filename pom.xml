@@ -9,7 +9,6 @@
     <version>1.0.0</version>
     <modules>
         <module>api-gateway</module>
-        <module>model</module>
         <module>product-server</module>
         <module>order-server</module>
         <module>job-executor</module>
@@ -30,17 +29,13 @@
         <spring.cloud.alibaba.version>2021.0.4.0</spring.cloud.alibaba.version>
 
         <xxl-job.version>2.1.0</xxl-job.version>
+        <sa-token.version>1.38.0</sa-token.version>
 
         <meet.version>1.1.5</meet.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>io.github.zhoujunlin94</groupId>
-                <artifactId>model</artifactId>
-                <version>${project.version}</version>
-            </dependency>
             <dependency>
                 <groupId>io.github.zhoujunlin94</groupId>
                 <artifactId>meet-common</artifactId>
@@ -93,6 +88,11 @@
                 <groupId>com.xuxueli</groupId>
                 <artifactId>xxl-job-core</artifactId>
                 <version>${xxl-job.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot-starter</artifactId>
+                <version>${sa-token.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

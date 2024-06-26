@@ -1,7 +1,7 @@
 package io.github.zhoujunlin94.server.order.service;
 
 
-import io.github.zhoujunlin94.model.api.dto.order.OrderDTO;
+import io.github.zhoujunlin94.server.order.dto.OrderDTO;
 
 /**
  * @author zhoujunlin

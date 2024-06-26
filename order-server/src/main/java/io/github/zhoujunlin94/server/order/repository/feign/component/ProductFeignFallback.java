@@ -2,7 +2,7 @@ package io.github.zhoujunlin94.server.order.repository.feign.component;
 
 import io.github.zhoujunlin94.meet.common.exception.CommonErrorCode;
 import io.github.zhoujunlin94.meet.common.pojo.JsonResponse;
-import io.github.zhoujunlin94.model.api.dto.product.ProductDTO;
+import io.github.zhoujunlin94.server.order.dto.product.ProductDTO;
 import io.github.zhoujunlin94.server.order.repository.feign.ProductFeignClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

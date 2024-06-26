@@ -19,16 +19,15 @@
     <dependencies>
         <dependency>
             <groupId>io.github.zhoujunlin94</groupId>
-            <artifactId>model</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.github.zhoujunlin94</groupId>
             <artifactId>meet-tk_mybatis</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.zhoujunlin94</groupId>
             <artifactId>meet-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

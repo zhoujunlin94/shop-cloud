@@ -1,7 +1,7 @@
 package io.github.zhoujunlin94.server.product.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
-import io.github.zhoujunlin94.model.api.dto.product.ProductDTO;
+import io.github.zhoujunlin94.server.product.dto.ProductDTO;
 import io.github.zhoujunlin94.server.product.repository.db.handler.ProductHandler;
 import io.github.zhoujunlin94.server.product.service.ProductService;
 import lombok.RequiredArgsConstructor;

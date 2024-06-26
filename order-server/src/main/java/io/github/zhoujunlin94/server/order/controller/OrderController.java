@@ -1,6 +1,6 @@
 package io.github.zhoujunlin94.server.order.controller;
 
-import io.github.zhoujunlin94.model.api.dto.order.OrderDTO;
+import io.github.zhoujunlin94.server.order.dto.OrderDTO;
 import io.github.zhoujunlin94.server.order.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;

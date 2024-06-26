@@ -1,6 +1,6 @@
 package io.github.zhoujunlin94.server.product.service;
 
-import io.github.zhoujunlin94.model.api.dto.product.ProductDTO;
+import io.github.zhoujunlin94.server.product.dto.ProductDTO;
 
 /**
  * @author zhoujunlin

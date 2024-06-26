@@ -4,38 +4,5 @@ server:
 spring:
   application:
     name: server-user
-
-  multiple:
-    datasource:
-      product:
-        url: jdbc:mysql://127.0.0.1:3306/user?useSSL=false&characterEncoding=utf-8&autoReconnect=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useUnicode=true&autoReconnect=true&failOverReadOnly=false&useAffectedRows=true
-        driverClassName: com.mysql.cj.jdbc.Driver
-        username: root
-        password: root
-        # hikari连接池配置 对应 HikariConfig 配置属性类
-        hikari:
-          poolName: HikariCP-user
-          #最小空闲连接数
-          minimumIdle: 20
-          # 空闲连接存活最大时间，默认10分钟
-          idleTimeout: 600000
-          # 连接池最大连接数，默认是10
-          maximumPoolSize: 100
-          # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
-          autoCommit: true
-          # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认30分钟
-          maxLifetime: 1800000
-          # 数据库连接超时时间,默认30秒
-          connectionTimeout: 30000
-          # 连接测试query
-          connectionTestQuery: SELECT 1
-        mybatis:
-          typeAliasesPackage: io.github.zhoujunlin94.server.user.repository.db.entity
-          mapperLocation: classpath:mybatis/*.xml
-          basePackages: io.github.zhoujunlin94.server.user.repository.db.mapper
-          interceptors:
-            - clazz: com.github.pagehelper.PageInterceptor
-              properties:
-                helperDialect: mysql
-                reasonable: true
-                supportMethodsArguments: true
+  profiles:
+    include: mybatis,satoken

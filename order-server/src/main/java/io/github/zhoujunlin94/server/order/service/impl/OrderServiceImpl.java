@@ -2,8 +2,8 @@ package io.github.zhoujunlin94.server.order.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import io.github.zhoujunlin94.meet.common.exception.MeetException;
-import io.github.zhoujunlin94.model.api.dto.order.OrderDTO;
-import io.github.zhoujunlin94.model.api.dto.product.ProductDTO;
+import io.github.zhoujunlin94.server.order.dto.OrderDTO;
+import io.github.zhoujunlin94.server.order.dto.product.ProductDTO;
 import io.github.zhoujunlin94.server.order.repository.db.entity.Order;
 import io.github.zhoujunlin94.server.order.repository.db.handler.OrderHandler;
 import io.github.zhoujunlin94.server.order.repository.feign.component.ProductFeignComponent;
