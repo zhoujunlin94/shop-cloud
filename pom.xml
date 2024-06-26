@@ -13,6 +13,7 @@
         <module>product-server</module>
         <module>order-server</module>
         <module>job-executor</module>
+        <module>user_server</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -35,6 +36,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>io.github.zhoujunlin94</groupId>
+                <artifactId>model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>io.github.zhoujunlin94</groupId>
                 <artifactId>meet-common</artifactId>

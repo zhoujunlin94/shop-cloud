@@ -20,7 +20,6 @@
         <dependency>
             <artifactId>model</artifactId>
             <groupId>io.github.zhoujunlin94</groupId>
-            <version>1.0.0</version>
         </dependency>
 
         <dependency>

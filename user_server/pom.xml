@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>order-server</artifactId>
+    <artifactId>user_server</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -30,21 +30,7 @@
             <groupId>io.github.zhoujunlin94</groupId>
             <artifactId>meet-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.github.zhoujunlin94</groupId>
-            <artifactId>meet-feign</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-        </dependency>
-
     </dependencies>
+
 
 </project>
