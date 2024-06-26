@@ -1,0 +1,14 @@
+##  同一个微服务不同环境  但是配置相同  共享
+spring:
+  cloud:
+    config:
+      #      不允许任何配置覆盖其他配置。这意味着所有配置源按照它们的默认优先级来加载，没有任何配置源可以覆盖其他配置源。
+      override-none: true
+      #      true表示 高优先级配置可以覆盖低优先级配置  (nacos优先级高)
+      allow-override: true
+      #     是否覆盖系统属性
+      override-system-properties: false
+
+app:
+  config:
+    name: Product-Refresh
