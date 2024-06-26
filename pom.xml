@@ -8,9 +8,10 @@
     <artifactId>shop-cloud</artifactId>
     <version>1.0.0</version>
     <modules>
-        <module>product-srv</module>
-        <module>order-srv</module>
         <module>api-gateway</module>
+        <module>model</module>
+        <module>product-server</module>
+        <module>order-server</module>
     </modules>
 
     <packaging>pom</packaging>
