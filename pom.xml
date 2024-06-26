@@ -31,7 +31,7 @@
         <xxl-job.version>2.1.0</xxl-job.version>
         <sa-token.version>1.38.0</sa-token.version>
 
-        <meet.version>1.1.5</meet.version>
+        <meet.version>1.1.6</meet.version>
     </properties>
 
     <dependencyManagement>
@@ -96,7 +96,7 @@
             </dependency>
             <dependency>
                 <groupId>cn.dev33</groupId>
-                <artifactId>sa-token-redis</artifactId>
+                <artifactId>sa-token-redis-jackson</artifactId>
                 <version>${sa-token.version}</version>
             </dependency>
         </dependencies>

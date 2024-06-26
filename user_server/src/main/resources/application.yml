@@ -5,4 +5,4 @@ spring:
   application:
     name: server-user
   profiles:
-    include: mybatis,satoken
+    include: mybatis,satoken,redis
