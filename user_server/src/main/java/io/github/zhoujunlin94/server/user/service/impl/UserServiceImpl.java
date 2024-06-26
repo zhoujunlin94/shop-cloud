@@ -1,11 +1,11 @@
 package io.github.zhoujunlin94.server.user.service.impl;
 
+import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.StrUtil;
 import io.github.zhoujunlin94.meet.common.exception.MeetException;
-import io.github.zhoujunlin94.meet.common.util.EncryptUtil;
 import io.github.zhoujunlin94.server.user.dto.UserDTO;
 import io.github.zhoujunlin94.server.user.repository.db.entity.User;
 import io.github.zhoujunlin94.server.user.repository.db.handler.UserHandler;
@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
             return user.getId();
         }
         User entity = BeanUtil.toBean(userDTO, User.class);
-        entity.setPwd(EncryptUtil.encryptMD5(userDTO.getPwd()));
+        entity.setPwd(SaSecureUtil.md5(userDTO.getPwd()));
         userHandler.insertSelective(entity);
         return entity.getId();
     }
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public SaTokenInfo login(UserDTO userDTO) {
         User user = userHandler.selectByPhone(userDTO.getPhone());
-        if (Objects.isNull(user) || !user.getPwd().equals(EncryptUtil.encryptMD5(userDTO.getPwd()))) {
+        if (Objects.isNull(user) || !user.getPwd().equals(SaSecureUtil.md5(userDTO.getPwd()))) {
             throw MeetException.meet("用户不存在或者密码错误");
         }
         StpUtil.login(user.getId());

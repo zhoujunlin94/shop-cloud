@@ -14,6 +14,6 @@ sa-token:
   # token 风格（默认可取值：uuid、simple-uuid、random-32、random-64、random-128、tik）
   token-style: uuid
   # 是否输出操作日志
-  is-log: false
+  is-log: true
   # 是否打印banner
   is-print: false
