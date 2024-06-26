@@ -26,6 +26,7 @@ public class UserController {
 
     @PostMapping("register")
     public Integer register(@RequestBody @Valid UserDTO userDTO) {
+        userDTO.setId(null);
         return userService.register(userDTO);
     }
 
