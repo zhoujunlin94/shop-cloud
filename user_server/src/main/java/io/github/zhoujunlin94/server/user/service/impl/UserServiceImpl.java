@@ -3,6 +3,7 @@ package io.github.zhoujunlin94.server.user.service.impl;
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.StrUtil;
 import io.github.zhoujunlin94.meet.common.exception.MeetException;
 import io.github.zhoujunlin94.meet.common.util.EncryptUtil;
 import io.github.zhoujunlin94.server.user.dto.UserDTO;
@@ -44,6 +45,15 @@ public class UserServiceImpl implements UserService {
         }
         StpUtil.login(user.getId());
         return StpUtil.getTokenInfo();
+    }
+
+    @Override
+    public UserDTO getUser(Integer userId) {
+        UserDTO retDTO = BeanUtil.toBean(userHandler.selectByPrimaryKey(userId), UserDTO.class);
+        if (Objects.nonNull(retDTO)) {
+            retDTO.setPwd(StrUtil.EMPTY);
+        }
+        return retDTO;
     }
 
 }

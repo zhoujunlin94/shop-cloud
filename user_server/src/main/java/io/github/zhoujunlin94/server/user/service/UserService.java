@@ -13,4 +13,6 @@ public interface UserService {
 
     SaTokenInfo login(UserDTO userDTO);
 
+    UserDTO getUser(Integer userId);
+
 }

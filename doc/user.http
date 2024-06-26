@@ -16,3 +16,7 @@ Content-Type: application/json
   "phone": "18511111111",
   "pwd": "test"
 }
+
+###
+GET http://127.0.0.1:8590/api/v1/user/getUser
+satoken: Bearer 6712a62f-b4ca-4757-a128-b4414eae17e1
