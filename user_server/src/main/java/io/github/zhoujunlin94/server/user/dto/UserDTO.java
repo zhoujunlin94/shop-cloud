@@ -1,10 +1,12 @@
 package io.github.zhoujunlin94.server.user.dto;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotBlank;
 
 @Data
+@Accessors(chain = true)
 public class UserDTO {
 
     private Integer id;
