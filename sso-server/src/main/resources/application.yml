@@ -1,0 +1,8 @@
+server:
+  port: 8590
+
+spring:
+  application:
+    name: server-sso
+  profiles:
+    include: mybatis,satoken,redis

@@ -1,8 +1,0 @@
-server:
-  port: 8590
-
-spring:
-  application:
-    name: server-user
-  profiles:
-    include: mybatis,satoken,redis

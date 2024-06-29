@@ -1,0 +1,27 @@
+# 注册
+POST http://127.0.0.1:8590/api/v1/user/register
+Content-Type: application/json
+
+{
+  "nickname": "zhou",
+  "phone": "18511111111",
+  "pwd": "test"
+}
+
+### 登录
+POST http://127.0.0.1:8590/api/v1/user/login
+Content-Type: application/json
+
+{
+  "nickname": "zhou",
+  "phone": "18511111111",
+  "pwd": "test"
+}
+
+### 获取用户信息
+GET http://127.0.0.1:8590/api/v1/user/getUser
+satoken: Bearer 5420ab10-6dbe-43e0-8181-8cecc8490888
+
+### sso授权  浏览器中直接访问
+GET http://localhost:8590/sso/auth?redirect=http://www.baidu.com
+

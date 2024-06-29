@@ -1,0 +1,8 @@
+server:
+  port: 8591
+
+spring:
+  application:
+    name: server-sso-client
+  profiles:
+    include: satoken,redis

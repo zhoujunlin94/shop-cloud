@@ -1,0 +1,7 @@
+### 浏览器直接访问
+GET http://sa-sso-client1.com:8591
+
+
+#### 注销
+GET http://sa-sso-client1.com:8591/sso/logout
+satoken: 94dba0c7-44cf-402f-9d28-b66f0311b2ef

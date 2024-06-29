@@ -1,0 +1,13 @@
+spring:
+  redis:
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    host: localhost
+    port: 16379
+    # 空密码需要注释掉  否则redisson会报错
+    password: meetredis
+    database: 0

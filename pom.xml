@@ -12,7 +12,8 @@
         <module>product-server</module>
         <module>order-server</module>
         <module>job-executor</module>
-        <module>user_server</module>
+        <module>sso-server</module>
+        <module>sso-client</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -102,6 +103,11 @@
             <dependency>
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-sso</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-alone-redis</artifactId>
                 <version>${sa-token.version}</version>
             </dependency>
         </dependencies>
