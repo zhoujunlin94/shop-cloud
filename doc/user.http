@@ -19,4 +19,4 @@ Content-Type: application/json
 
 ###
 GET http://127.0.0.1:8590/api/v1/user/getUser
-satoken: Bearer 6712a62f-b4ca-4757-a128-b4414eae17e1
+satoken: Bearer 5420ab10-6dbe-43e0-8181-8cecc8490888

@@ -9,5 +9,5 @@ spring:
     host: localhost
     port: 16379
     # 空密码需要注释掉  否则redisson会报错
-    #    password: meetredis
+    password: meetredis
     database: 0
