@@ -1,7 +1,7 @@
 package io.github.zhoujunlin94.server.sso.client.app.controller;
 
 import cn.dev33.satoken.sso.config.SaSsoClientConfig;
-import cn.dev33.satoken.sso.processor.SaSsoServerProcessor;
+import cn.dev33.satoken.sso.processor.SaSsoClientProcessor;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.http.HttpUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -34,13 +34,11 @@ public class SsoClientController {
      */
     @RequestMapping("/sso/*")
     public Object ssoRequest() {
-        return SaSsoServerProcessor.instance.dister();
+        return SaSsoClientProcessor.instance.dister();
     }
 
     @Autowired
     private void configSso(SaSsoClientConfig ssoClient) {
-
-
         // 配置 Http 请求处理器
         ssoClient.sendHttp = url -> {
             try {

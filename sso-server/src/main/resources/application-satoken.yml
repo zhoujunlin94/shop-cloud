@@ -14,7 +14,7 @@ sa-token:
   # token 风格（默认可取值：uuid、simple-uuid、random-32、random-64、random-128、tik）
   token-style: uuid
   # 是否输出操作日志
-  is-log: false
+  is-log: true
   # 是否打印banner
   is-print: false
   # ------- SSO-模式二相关配置
@@ -25,7 +25,7 @@ sa-token:
     allow-url: "*"
     # ------- SSO-模式三相关配置 （下面的配置在使用SSO模式三时打开）
     # 是否打开模式三
-    is-http: true
+  #    is-http: true
   sign:
     # API 接口调用秘钥
     secret-key: kQwIOrYvnXmSDkwEiFngrKidMcdrgKor

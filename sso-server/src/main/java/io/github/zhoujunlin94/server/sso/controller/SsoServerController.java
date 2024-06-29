@@ -4,6 +4,8 @@ import cn.dev33.satoken.context.SaHolder;
 import cn.dev33.satoken.sso.config.SaSsoServerConfig;
 import cn.dev33.satoken.sso.processor.SaSsoServerProcessor;
 import cn.dev33.satoken.stp.SaTokenInfo;
+import cn.dev33.satoken.util.SaResult;
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.http.HttpUtil;
 import io.github.zhoujunlin94.meet.common.pojo.JsonResponse;
 import io.github.zhoujunlin94.server.sso.dto.UserDTO;
@@ -26,7 +28,11 @@ public class SsoServerController {
      */
     @RequestMapping("/sso/*")
     public Object ssoRequest() {
-        return SaSsoServerProcessor.instance.dister();
+        Object ret = SaSsoServerProcessor.instance.dister();
+        if (ret instanceof SaResult) {
+            return BeanUtil.toBean(ret, JsonResponse.class);
+        }
+        return ret;
     }
 
     /**
