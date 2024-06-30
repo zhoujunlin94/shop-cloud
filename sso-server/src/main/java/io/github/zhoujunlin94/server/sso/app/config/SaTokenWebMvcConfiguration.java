@@ -19,7 +19,8 @@ public class SaTokenWebMvcConfiguration implements WebMvcConfigurer {
         // 注册 Sa-Token 拦截器，校验规则为 StpUtil.checkLogin() 登录校验。
         registry.addInterceptor(new SaInterceptor(handle -> {
             SaRouter.match("/**")
-                    .notMatch("/api/v1/user/register", "/api/v1/user/login", "/sso/**/*")
+                    .notMatch("/api/v1/user/register", "/api/v1/user/login", "/sso/**/*",
+                            "/sso-auth.html", "/assets/**/*")
                     .check(r -> StpUtil.checkLogin()).stop();
         }).isAnnotation(false)).addPathPatterns("/**");
     }

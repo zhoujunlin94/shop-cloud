@@ -28,4 +28,4 @@ spring:
           filters:
             - StripPrefix=1
             # 自定义过滤器  用户打印接口执行时间
-            - Time=true
+            # - Time=true

@@ -25,3 +25,6 @@ satoken: Bearer 5420ab10-6dbe-43e0-8181-8cecc8490888
 ### sso授权  浏览器中直接访问
 GET http://localhost:8590/sso/auth?redirect=http://www.baidu.com
 
+
+### 前后端分离
+GET http://sa-sso-server.com:8590/sso/auth?redirect=http://127.0.0.1:5500/sso-login.html

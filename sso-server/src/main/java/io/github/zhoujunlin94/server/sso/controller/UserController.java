@@ -1,6 +1,5 @@
 package io.github.zhoujunlin94.server.sso.controller;
 
-import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import io.github.zhoujunlin94.server.sso.dto.UserDTO;
 import io.github.zhoujunlin94.server.sso.service.UserService;
@@ -28,10 +27,6 @@ public class UserController {
         return userService.register(userDTO);
     }
 
-    @PostMapping("login")
-    public SaTokenInfo login(@RequestBody @Valid UserDTO userDTO) {
-        return userService.login(userDTO);
-    }
 
     @GetMapping("getUser")
     public UserDTO getUser() {

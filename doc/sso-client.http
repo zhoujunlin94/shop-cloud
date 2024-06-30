@@ -5,3 +5,7 @@ GET http://sa-sso-client1.com:8591
 #### 注销
 GET http://sa-sso-client1.com:8591/sso/logout
 satoken: 94dba0c7-44cf-402f-9d28-b66f0311b2ef
+
+
+### 前后端分离项目  直接访问h5文件夹下的index.html
+

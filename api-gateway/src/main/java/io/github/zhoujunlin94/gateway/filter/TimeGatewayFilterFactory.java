@@ -10,7 +10,6 @@ import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -20,9 +19,10 @@ import java.util.List;
 /**
  * @author zhoujunlin
  * @date 2024/6/10 16:16
+ * 自定义局部过滤器
  */
 @Slf4j
-@Component
+// @Component
 public class TimeGatewayFilterFactory extends AbstractGatewayFilterFactory<TimeGatewayFilterFactory.Config> {
 
     public TimeGatewayFilterFactory() {

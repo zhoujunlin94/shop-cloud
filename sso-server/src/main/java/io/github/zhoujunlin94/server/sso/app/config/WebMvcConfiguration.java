@@ -21,7 +21,8 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         // 基础http请求拦截器
         registry.addInterceptor(httpBaseInterceptor)
-                .excludePathPatterns("/favicon.ico")
+                .excludePathPatterns("/favicon.ico", "/assets/**/*", "/**/*.js", "/**/*.html", "/**/*.css")
+                .excludePathPatterns("/swagger-resources", "/v2/api-docs")
         ;
     }
 

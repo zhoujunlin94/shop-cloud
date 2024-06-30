@@ -31,7 +31,7 @@ sa.ajax = function (url, data, successFn) {
             successFn(res);
         },
         error: function (xhr, type, errorThrown) {
-            if (xhr.status == 0) {
+            if (xhr.status === 0) {
                 return alert('无法连接到服务器，请检查网络');
             }
             return alert("异常：" + JSON.stringify(xhr));
@@ -47,28 +47,18 @@ var pData = {
     redirect: getParam('redirect', ''),
     mode: getParam('mode', '')
 };
-sa.ajax("/sso/getRedirectUrl", pData, function (res) {
-    if (res.code == 200) {
-        // 已登录，并且redirect地址有效，开始跳转
-        location.href = decodeURIComponent(res.data);
-    } else if (res.code == 401) {
-        console.log('未登录');
-    } else {
-        layer.alert(res.msg);
-    }
-})
 
 // 登录
 $('.login-btn').click(function () {
     sa.loading("正在登录...");
     // 开始登录
     var data = {
-        name: $('[name=name]').val(),
+        phone: $('[name=phone]').val(),
         pwd: $('[name=pwd]').val()
     };
     sa.ajax("/sso/doLogin", data, function (res) {
         sa.hideLoading();
-        if (res.code == 200) {
+        if (res.code === 0) {
             localStorage.setItem('satoken', res.data);
             layer.msg('登录成功', {anim: 0, icon: 6});
             setTimeout(function () {
@@ -82,14 +72,14 @@ $('.login-btn').click(function () {
 
 
 // 绑定回车事件
-$('[name=name],[name=pwd]').bind('keypress', function (event) {
+$('[name=phone],[name=pwd]').bind('keypress', function (event) {
     if (event.keyCode == "13") {
         $('.login-btn').click();
     }
 });
 
 // 输入框获取焦点
-$("[name=name]").focus();
+$("[name=phone]").focus();
 
 // 从url中查询到指定名称的参数值
 function getParam(name, defaultValue) {

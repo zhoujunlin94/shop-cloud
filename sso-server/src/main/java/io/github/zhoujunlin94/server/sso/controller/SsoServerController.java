@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author zhoujunlin
@@ -41,12 +42,7 @@ public class SsoServerController {
     @Autowired
     private void configSso(SaSsoServerConfig ssoServer, UserService userService) {
         // 配置：未登录时返回的View
-        ssoServer.notLoginView = () -> {
-            String msg = "当前会话在SSO-Server端尚未登录，请先访问"
-                    + "<a href='/sso/doLogin?phone=18511111111&pwd=test' target='_blank'> doLogin登录 </a>"
-                    + "进行登录之后，刷新页面开始授权";
-            return msg;
-        };
+        ssoServer.notLoginView = () -> new ModelAndView("/sso-auth.html");
 
         // 配置：登录处理函数
         ssoServer.doLoginHandle = (name, pwd) -> {
