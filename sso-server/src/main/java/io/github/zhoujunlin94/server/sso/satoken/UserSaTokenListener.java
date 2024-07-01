@@ -1,4 +1,4 @@
-package io.github.zhoujunlin94.server.sso.app.satoken;
+package io.github.zhoujunlin94.server.sso.satoken;
 
 import cn.dev33.satoken.listener.SaTokenListener;
 import cn.dev33.satoken.stp.SaLoginModel;
