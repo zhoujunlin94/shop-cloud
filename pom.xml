@@ -33,7 +33,7 @@
         <sa-token.version>1.38.0</sa-token.version>
         <rocketmq.version>2.1.1</rocketmq.version>
 
-        <meet.version>1.1.6</meet.version>
+        <meet.version>1.1.7</meet.version>
     </properties>
 
     <dependencyManagement>

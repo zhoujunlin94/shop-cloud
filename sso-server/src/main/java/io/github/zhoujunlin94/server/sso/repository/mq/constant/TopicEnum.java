@@ -1,4 +1,4 @@
-package io.github.zhoujunlin94.server.sso.repository.mq;
+package io.github.zhoujunlin94.server.sso.repository.mq.constant;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

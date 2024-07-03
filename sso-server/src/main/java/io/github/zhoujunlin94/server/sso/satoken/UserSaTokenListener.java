@@ -2,6 +2,12 @@ package io.github.zhoujunlin94.server.sso.satoken;
 
 import cn.dev33.satoken.listener.SaTokenListener;
 import cn.dev33.satoken.stp.SaLoginModel;
+import cn.hutool.core.convert.Convert;
+import io.github.zhoujunlin94.meet.common.util.RequestContextUtil;
+import io.github.zhoujunlin94.server.sso.dto.LoginLogDTO;
+import io.github.zhoujunlin94.server.sso.repository.mq.constant.TopicEnum;
+import io.github.zhoujunlin94.server.sso.repository.mq.service.MQService;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -13,7 +19,10 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class UserSaTokenListener implements SaTokenListener {
+
+    private final MQService mqService;
 
     /**
      * 每次登录时触发
@@ -22,7 +31,8 @@ public class UserSaTokenListener implements SaTokenListener {
     @SneakyThrows
     public void doLogin(String loginType, Object loginId, String tokenValue, SaLoginModel loginModel) {
         try {
-            System.out.println("---------- 自定义侦听器实现 doLogin");
+            LoginLogDTO loginLog = new LoginLogDTO(Convert.toInt(loginId), RequestContextUtil.get().getClientIP());
+            mqService.sendOneWay(TopicEnum.TOPIC_LOGIN.getTopic(), loginLog);
         } catch (Exception e) {
             log.warn("自定义侦听器实现 doLogin", e);
         }
