@@ -12,5 +12,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ProductHandler extends TKHandler<ProductMapper, Product> {
 
+    public boolean reduceStock(Integer productId, Integer amount) {
+        return this.baseMapper.reduceStock(productId, amount) == 1;
+    }
 
 }

@@ -10,4 +10,6 @@ public interface ProductService {
 
     ProductDTO findById(Integer productId);
 
+    void reduceStock(Integer productId, Integer amount);
+
 }

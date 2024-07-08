@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author zhoujunlin
  * @date 2024/6/7
  */
-@FeignClient(name = "server-product", path = "/api/v1/product", fallback = ProductFeignFallback.class)
+@FeignClient(name = "server-product", path = "/external/api/v1/product", fallback = ProductFeignFallback.class)
 public interface ProductFeignClient {
 
     @GetMapping("/findById")

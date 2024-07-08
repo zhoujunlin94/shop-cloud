@@ -19,15 +19,22 @@
     <dependencies>
         <dependency>
             <groupId>io.github.zhoujunlin94</groupId>
-            <artifactId>meet-tk_mybatis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.zhoujunlin94</groupId>
             <artifactId>meet-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>io.github.zhoujunlin94</groupId>
+            <artifactId>meet-tk_mybatis</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>io.github.zhoujunlin94</groupId>
             <artifactId>meet-feign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>
