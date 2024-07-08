@@ -1,7 +1,7 @@
 spring:
   multiple:
     datasource:
-      product:
+      account:
         url: jdbc:mysql://127.0.0.1:3306/account?useSSL=false&characterEncoding=utf-8&autoReconnect=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useUnicode=true&autoReconnect=true&failOverReadOnly=false&useAffectedRows=true
         driverClassName: com.mysql.cj.jdbc.Driver
         username: root

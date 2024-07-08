@@ -12,11 +12,6 @@ import lombok.experimental.Accessors;
 public class AccountDTO {
 
     /**
-     * 主键
-     */
-    private Integer id;
-
-    /**
      * 用户id
      */
     private Integer userId;
