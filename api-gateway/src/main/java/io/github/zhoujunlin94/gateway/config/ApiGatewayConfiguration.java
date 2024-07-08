@@ -48,7 +48,7 @@ public class ApiGatewayConfiguration {
         // 允许访问的头信息,*表示全部
         config.addAllowedHeader("*");
         // 预检请求的缓存时间（秒），即在这个时间段里，对于相同的跨域请求不会再预检了
-        config.setMaxAge(18000L);
+        config.setMaxAge(1800L);
         // 允许提交请求的方法，*表示全部允许
         config.addAllowedMethod("*");
 

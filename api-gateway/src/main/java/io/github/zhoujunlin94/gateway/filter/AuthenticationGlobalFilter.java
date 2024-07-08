@@ -1,10 +1,13 @@
 package io.github.zhoujunlin94.gateway.filter;
 
 import cn.hutool.core.util.StrUtil;
+import io.github.zhoujunlin94.gateway.service.SsoUserService;
 import io.github.zhoujunlin94.meet.common.pojo.JsonResponse;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -17,8 +20,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -26,8 +27,12 @@ import java.util.Objects;
  * @date 2024/6/10 09:36
  */
 @Slf4j
+@Order(Integer.MIN_VALUE + 1)
 @Component
-public class AuthGlobalFilter implements GlobalFilter {
+@RequiredArgsConstructor
+public class AuthenticationGlobalFilter implements GlobalFilter {
+
+    private final SsoUserService ssoUserService;
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -35,34 +40,29 @@ public class AuthGlobalFilter implements GlobalFilter {
         // <1> 获得 token
         ServerHttpRequest request = exchange.getRequest();
         HttpHeaders headers = request.getHeaders();
-        String token = headers.getFirst("token");
+        String token = headers.getFirst("Authentication");
 
         // <2> 如果没有 token，则不进行认证。因为可能是无需认证的 API 接口
         if (StrUtil.isBlank(token)) {
             return chain.filter(exchange);
         }
 
-        // <3> 进行认证
-        // 模拟获取token信息  正常应该存放于redis
-        Map<String, Integer> tokenMap = new HashMap<>();
-        tokenMap.put("test", 1);
-
+        // <3> 获取userId
+        Integer userId = ssoUserService.getUserId(token);
         ServerHttpResponse response = exchange.getResponse();
-        Integer userId = tokenMap.get(token);
-
         // <4> 通过 token 获取不到 userId，说明认证不通过
         if (Objects.isNull(userId)) {
             response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
             // 响应 401 状态码
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
             // 响应提示
-            DataBuffer buffer = exchange.getResponse().bufferFactory().wrap(JsonResponse.fail(401, "认证不通过").toString().getBytes(StandardCharsets.UTF_8));
+            DataBuffer buffer = response.bufferFactory().wrap(JsonResponse.fail(401, "认证不通过").toString().getBytes(StandardCharsets.UTF_8));
             return response.writeWith(Flux.just(buffer));
         }
 
         // <6> 认证通过，将 userId 添加到 Header 中
-        request = request.mutate().header("userId", String.valueOf(userId)).build();
-        return chain.filter(exchange.mutate().request(request).build()).then(Mono.fromRunnable(() -> {
+        ServerHttpRequest wrappedRequest = request.mutate().header("X-GATEWAY-UID", String.valueOf(userId)).build();
+        return chain.filter(exchange.mutate().request(wrappedRequest).build()).then(Mono.fromRunnable(() -> {
             log.warn("进入鉴权后置过滤器...");
         }));
     }

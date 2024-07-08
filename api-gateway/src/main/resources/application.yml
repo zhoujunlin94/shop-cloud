@@ -3,7 +3,7 @@ server:
 
 spring:
   profiles:
-    include: common
+    active: dev
   application:
     name: api-gateway
   cloud:

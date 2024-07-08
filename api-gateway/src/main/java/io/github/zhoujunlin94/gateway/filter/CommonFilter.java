@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
@@ -17,9 +18,11 @@ import java.util.Objects;
  * @author zhoujunlin
  * <p>
  * 定义全局过滤器，功能如下:
- * 把客户端真实IP通过请求同的方式传递给微服务
+ * 1. 把客户端真实IP通过请求同的方式传递给微服务
+ * 2. 打印接口执行耗时
  */
 @Slf4j
+@Order(Integer.MIN_VALUE)
 @Component
 public class CommonFilter implements GlobalFilter {
 
