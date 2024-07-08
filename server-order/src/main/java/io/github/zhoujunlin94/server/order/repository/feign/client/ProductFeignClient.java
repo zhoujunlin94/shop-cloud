@@ -1,8 +1,8 @@
-package io.github.zhoujunlin94.server.order.repository.feign;
+package io.github.zhoujunlin94.server.order.repository.feign.client;
 
 import io.github.zhoujunlin94.meet.common.pojo.JsonResponse;
-import io.github.zhoujunlin94.server.order.dto.product.ProductDTO;
-import io.github.zhoujunlin94.server.order.repository.feign.component.ProductFeignFallback;
+import io.github.zhoujunlin94.server.order.repository.feign.dto.ProductDTO;
+import io.github.zhoujunlin94.server.order.repository.feign.fallbck.ProductFeignFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

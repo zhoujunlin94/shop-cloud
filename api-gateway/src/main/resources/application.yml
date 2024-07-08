@@ -13,18 +13,36 @@ spring:
           # 让gateway发现nacos中的微服务
           enabled: true
       routes:
-        - id: product_route
-          # 满足下方断言的路由负载均衡到server-product微服务
+        - id: route_common
+          # 满足下方断言的路由负载均衡到server-common微服务
+          uri: lb://server-common
+          predicates:
+            - Path=/shop-common/**
+          filters:
+            # 局部过滤器（命名规范：StripPrefixGatewayFilterFactory）：截去路径中的第一个前缀   这里是shop-common
+            - StripPrefix=1
+        - id: route_account
+          uri: lb://server-account
+          predicates:
+            - Path=/shop-account/**
+          filters:
+            - StripPrefix=1
+        - id: route_order
+          uri: lb://server-order
+          predicates:
+            - Path=/shop-order/**
+          filters:
+            - StripPrefix=1
+        - id: route_product
           uri: lb://server-product
           predicates:
             - Path=/shop-product/**
           filters:
-            # 局部过滤器（命名规范：StripPrefixGatewayFilterFactory）：截去路径中的第一个前缀   这里是shop-product
             - StripPrefix=1
-        - id: order_route
-          uri: lb://server-order
+        - id: route_sso
+          uri: lb://server-sso
           predicates:
-            - Path=/shop-order/**
+            - Path=/shop-sso/**
           filters:
             - StripPrefix=1
             # 自定义过滤器  用户打印接口执行时间

@@ -20,28 +20,28 @@ public class OrderDTO {
     private Integer userId;
 
     /**
-     * 用户名
-     */
-    private String userName;
-
-    /**
      * 商品id
      */
-    private Integer pId;
+    private Integer productId;
 
     /**
      * 下单那一刻的商品名（快照）
      */
-    private String pName;
+    private String productName;
 
     /**
      * 下单那一刻的商品价格 单位：分
      */
-    private Integer pPrice;
+    private Integer productPrice;
 
     /**
      * 购买数量
      */
     private Integer number;
+
+    /**
+     * 实际支付价格 单位：分
+     */
+    private Integer payPrice;
 
 }

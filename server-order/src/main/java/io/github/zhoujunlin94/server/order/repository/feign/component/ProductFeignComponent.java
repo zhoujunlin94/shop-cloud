@@ -1,8 +1,8 @@
 package io.github.zhoujunlin94.server.order.repository.feign.component;
 
 import io.github.zhoujunlin94.meet.common.pojo.JsonResponse;
-import io.github.zhoujunlin94.server.order.dto.product.ProductDTO;
-import io.github.zhoujunlin94.server.order.repository.feign.ProductFeignClient;
+import io.github.zhoujunlin94.server.order.repository.feign.client.ProductFeignClient;
+import io.github.zhoujunlin94.server.order.repository.feign.dto.ProductDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +18,7 @@ public class ProductFeignComponent {
 
     public ProductDTO findById(Integer productId) {
         JsonResponse<ProductDTO> response = productFeignClient.findById(productId);
-        return response.getData();
+        return response.isOk() ? response.getData() : null;
     }
 
 }

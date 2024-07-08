@@ -1,4 +1,4 @@
-package io.github.zhoujunlin94.server.order.service;
+package io.github.zhoujunlin94.server.order.service.impl;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import org.springframework.stereotype.Service;

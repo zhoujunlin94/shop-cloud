@@ -7,7 +7,7 @@ server:
 
 spring:
   profiles:
-    include: common
+    active: dev
   application:
     name: server-order
 

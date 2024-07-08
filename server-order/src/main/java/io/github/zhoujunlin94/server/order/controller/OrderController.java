@@ -1,5 +1,6 @@
 package io.github.zhoujunlin94.server.order.controller;
 
+import io.github.zhoujunlin94.meet.web.helper.LoginHelper;
 import io.github.zhoujunlin94.server.order.dto.OrderDTO;
 import io.github.zhoujunlin94.server.order.service.OrderService;
 import lombok.RequiredArgsConstructor;
@@ -26,8 +27,8 @@ public class OrderController {
 
     @PostMapping("/createOrder")
     public OrderDTO createOrder(@RequestParam @NotNull(message = "productId不可为空") Integer productId,
-                                @RequestParam @NotNull(message = "userId不可为空") Integer userId) {
-        return orderService.createOrder(productId, userId);
+                                @RequestParam(defaultValue = "1") Integer number) {
+        return orderService.createOrder(productId, number, LoginHelper.getUserId());
     }
 
 }

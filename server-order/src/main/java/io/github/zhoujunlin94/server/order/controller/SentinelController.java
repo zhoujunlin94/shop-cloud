@@ -2,7 +2,7 @@ package io.github.zhoujunlin94.server.order.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import io.github.zhoujunlin94.server.order.app.sentinel.SentinelResourceHandler;
-import io.github.zhoujunlin94.server.order.service.GoodService;
+import io.github.zhoujunlin94.server.order.service.impl.GoodService;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.validation.annotation.Validated;

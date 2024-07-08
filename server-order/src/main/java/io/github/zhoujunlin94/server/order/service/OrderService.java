@@ -9,6 +9,6 @@ import io.github.zhoujunlin94.server.order.dto.OrderDTO;
  */
 public interface OrderService {
 
-    OrderDTO createOrder(Integer productId, Integer userId);
+    OrderDTO createOrder(Integer productId, Integer number, Integer userId);
 
 }
