@@ -17,12 +17,12 @@ public class ProductDTO {
     /**
      * 商品名
      */
-    private String pName;
+    private String productName;
 
     /**
      * 商品价格 单位：分
      */
-    private Integer pPrice;
+    private Integer productPrice;
 
     /**
      * 库存
