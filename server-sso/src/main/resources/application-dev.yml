@@ -1,7 +1,7 @@
 spring:
   multiple:
     datasource:
-      product:
+      user:
         url: jdbc:mysql://127.0.0.1:3306/user?useSSL=false&characterEncoding=utf-8&autoReconnect=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useUnicode=true&autoReconnect=true&failOverReadOnly=false&useAffectedRows=true
         driverClassName: com.mysql.cj.jdbc.Driver
         username: root
@@ -33,3 +33,46 @@ spring:
                 helperDialect: mysql
                 reasonable: true
                 supportMethodsArguments: true
+  redis:
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    host: localhost
+    port: 16379
+    # 空密码需要注释掉  否则redisson会报错
+    password: meetredis
+    database: 0
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: d98ef8a5-ada3-40f6-a9fa-ee576fc5f88f
+
+# rocketmq配置项  对应RocketMQProperties
+rocketmq:
+  # rocketmq namesrv
+  name-server: 127.0.0.1:19876
+  # 生产者配置项
+  producer:
+    # 生产者分组
+    group: shop-cloud-group
+    # 发送信息超时时间  单位毫秒  默认值也是3000
+    send-message-timeout: 3000
+    # 消息压缩阈值  当消息体的大小超过改值时 进行消息压缩  默认为 4 * 1024B  4KB
+    compress-message-body-threshold: 4096
+    # 消息体的最大允许大小  默认值 4*1024*1924B  4MB
+    max-message-size: 4194304
+    # 同步发送消息时  失败重试次数  默认2次
+    retry-times-when-send-failed: 2
+    # 异步发送消息时  失败重试次数  默认2次
+    retry-times-when-send-async-failed: 2
+    # 发送消息给Broker时  如果发送失败  是否重试另外一台Broker  默认为false
+    retry-next-server: true
+    # 是否开启消息轨迹功能
+    enable-msg-trace: true
+    # 自定义的消息轨迹topic
+    customized-trace-topic: RMQ_SYS_TRACE_TOPIC

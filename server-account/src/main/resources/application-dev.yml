@@ -38,6 +38,7 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+        namespace: d98ef8a5-ada3-40f6-a9fa-ee576fc5f88f
 
 # Seata 配置项，对应 SeataProperties 类
 seata:

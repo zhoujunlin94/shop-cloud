@@ -1,8 +1,9 @@
 server:
-  port: 8590
+  port: 8193
 
 spring:
   application:
     name: server-sso
   profiles:
-    include: mybatis,satoken,redis,rocketmq
+    active: dev
+    include: satoken

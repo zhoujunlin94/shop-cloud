@@ -1,3 +1,6 @@
+server:
+  port: 8192
+
 spring:
   multiple:
     datasource:
