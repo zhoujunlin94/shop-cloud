@@ -1,13 +1,14 @@
-package io.github.zhoujunlin94.server.product.controller;
+package io.github.zhoujunlin94.server.product.controller.internal;
 
 import io.github.zhoujunlin94.server.product.dto.ProductDTO;
-import io.github.zhoujunlin94.server.product.dto.ProductReduceStockDTO;
 import io.github.zhoujunlin94.server.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -17,7 +18,7 @@ import javax.validation.constraints.NotNull;
 @Validated
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/external/api/v1/product")
+@RequestMapping("/internal/api/v1/product")
 public class ProductController {
 
     private final ProductService productService;
@@ -26,11 +27,6 @@ public class ProductController {
     @GetMapping("/findById")
     public ProductDTO findById(@RequestParam @NotNull(message = "productId不可为空") Integer productId) {
         return productService.findById(productId);
-    }
-
-    @PostMapping("/reduceStock")
-    public void reduceStock(@RequestBody @Valid ProductReduceStockDTO reduceStockDTO) {
-        productService.reduceStock(reduceStockDTO.getProductId(), reduceStockDTO.getAmount());
     }
 
 }

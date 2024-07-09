@@ -2,8 +2,7 @@ package io.github.zhoujunlin94.server.order.repository.feign.fallbck;
 
 import io.github.zhoujunlin94.meet.common.exception.CommonErrorCode;
 import io.github.zhoujunlin94.meet.common.pojo.JsonResponse;
-import io.github.zhoujunlin94.server.order.repository.feign.client.ProductFeignClient;
-import io.github.zhoujunlin94.server.order.repository.feign.dto.ProductDTO;
+import io.github.zhoujunlin94.server.order.repository.feign.client.AccountFeignClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -15,15 +14,10 @@ import java.util.Map;
  */
 @Slf4j
 @Component
-public class ProductFeignFallback implements ProductFeignClient {
+public class AccountFeignFallback implements AccountFeignClient {
 
     @Override
-    public JsonResponse<ProductDTO> findById(Integer productId) {
-        return JsonResponse.fail(CommonErrorCode.B_NOT_FOUND, null);
-    }
-
-    @Override
-    public JsonResponse<Object> reduceStock(Map<String, Object> requestJson) {
+    public JsonResponse<Object> reduceBalance(Map<String, Object> requestJson) {
         return JsonResponse.fail(CommonErrorCode.B_NOT_FOUND, null);
     }
 

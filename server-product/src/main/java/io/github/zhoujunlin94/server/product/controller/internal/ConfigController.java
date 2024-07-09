@@ -1,4 +1,4 @@
-package io.github.zhoujunlin94.server.product.controller;
+package io.github.zhoujunlin94.server.product.controller.internal;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

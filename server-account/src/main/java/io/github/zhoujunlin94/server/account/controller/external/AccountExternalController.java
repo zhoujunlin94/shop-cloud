@@ -1,4 +1,4 @@
-package io.github.zhoujunlin94.server.account.controller;
+package io.github.zhoujunlin94.server.account.controller.external;
 
 import io.github.zhoujunlin94.server.account.dto.AccountReduceBalanceDTO;
 import io.github.zhoujunlin94.server.account.service.AccountService;
@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
+/**
+ * @author zhoujunlin
+ */
 @Slf4j
 @Validated
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/external/api/v1/account")
-public class AccountController {
+public class AccountExternalController {
 
     private final AccountService accountService;
 
