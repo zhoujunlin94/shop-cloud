@@ -15,6 +15,9 @@ CREATE TABLE `shop_account`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4 COMMENT = '用户账户表';
 
+insert into shop_account (user_id, balance)
+values (2, 250000);
+
 
 CREATE TABLE undo_log
 (

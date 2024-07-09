@@ -43,9 +43,9 @@ public class CommonFilter implements GlobalFilter {
         stopWatch.start();
         MDC.remove(RequestIdUtil.REQUEST_ID);
 
-        ServerHttpRequest retRequest = request.mutate().
-                header("X-Real-IP", Objects.requireNonNull(request.getRemoteAddress()).getHostString()).
-                build();
+        ServerHttpRequest retRequest = request.mutate()
+                .header("X-Real-IP", Objects.requireNonNull(request.getRemoteAddress()).getHostString())
+                .header(RequestIdUtil.REQUEST_ID, requestId).build();
         return chain.filter(exchange.mutate().request(retRequest).build()).then(Mono.fromRunnable(() -> {
             /**
              * post拦截逻辑

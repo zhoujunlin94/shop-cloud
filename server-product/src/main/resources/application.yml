@@ -41,6 +41,7 @@ spring:
     nacos:
       discovery:
         server-addr: ${nacos.host}:${nacos.port}
+        namespace: d98ef8a5-ada3-40f6-a9fa-ee576fc5f88f
 
 
 # Seata 配置项，对应 SeataProperties 类
@@ -53,7 +54,7 @@ seata:
   service:
     # 虚拟组和分组的映射
     vgroup-mapping:
-      order-service-group: default
+      server-product-group: default
     # 分组和 Seata 服务的映射
     grouplist:
       default: ${seata.host}:${seata.port}

@@ -3,8 +3,10 @@ package io.github.zhoujunlin94.gateway.filter;
 import cn.hutool.core.util.StrUtil;
 import io.github.zhoujunlin94.gateway.service.SsoUserService;
 import io.github.zhoujunlin94.meet.common.pojo.JsonResponse;
+import io.github.zhoujunlin94.meet.common.util.RequestIdUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.annotation.Order;
@@ -36,9 +38,15 @@ public class AuthenticationGlobalFilter implements GlobalFilter {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        ServerHttpRequest request = exchange.getRequest();
+        String requestId = request.getHeaders().getFirst(RequestIdUtil.REQUEST_ID);
+        if (StrUtil.isBlank(requestId)) {
+            requestId = RequestIdUtil.generateRequestId();
+        }
+        MDC.put(RequestIdUtil.REQUEST_ID, requestId);
         log.warn("鉴权前置过滤器...");
         // <1> 获得 token
-        ServerHttpRequest request = exchange.getRequest();
+
         HttpHeaders headers = request.getHeaders();
         String token = headers.getFirst("Authentication");
 
@@ -64,6 +72,7 @@ public class AuthenticationGlobalFilter implements GlobalFilter {
         ServerHttpRequest wrappedRequest = request.mutate().header("X-GATEWAY-UID", String.valueOf(userId)).build();
         return chain.filter(exchange.mutate().request(wrappedRequest).build()).then(Mono.fromRunnable(() -> {
             log.warn("进入鉴权后置过滤器...");
+            MDC.remove(RequestIdUtil.REQUEST_ID);
         }));
     }
 }
