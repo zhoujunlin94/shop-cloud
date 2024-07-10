@@ -1,5 +1,8 @@
 #####
-# 1. 启动docker：mysql, rocketmq, redis, nacos, sentinel, seata
+# 1. 启动docker
+# 2. 启动mysql并准备数据
+# 3. 执行sql: nacos-mysql.sql  user.sql  account.sql  product.sql  order.sql
+# 3. 启动rocketmq, redis, nacos, sentinel, seata
 # 2. 准备好nacos配置（新建dev命名空间） 导入infrastructure.yaml和server-product.yaml
 # 3. 启动server-account、server-product、server-order
 # 4. 启动server-sso、api-gateway

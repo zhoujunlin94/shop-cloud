@@ -10,7 +10,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * @date 2024-06-07-10:15
  */
 @SpringBootApplication
-@EnableFeignClients
+@EnableFeignClients(basePackages = {"io.github.zhoujunlin94.server.order.repository.feign.client"})
 @EnableAspectJAutoProxy(exposeProxy = true)
 public class OrderApplication {
 
