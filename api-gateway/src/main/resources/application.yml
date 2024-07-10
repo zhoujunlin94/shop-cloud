@@ -13,7 +13,7 @@ spring:
           # 让gateway发现nacos中的微服务
           enabled: true
       routes:
-        - id: route_common
+        - id: server-common
           # 满足下方断言的路由负载均衡到server-common微服务
           uri: lb://server-common
           predicates:
@@ -21,25 +21,25 @@ spring:
           filters:
             # 局部过滤器（命名规范：StripPrefixGatewayFilterFactory）：截去路径中的第一个前缀   这里是shop-common
             - StripPrefix=1
-        - id: route_account
+        - id: server-account
           uri: lb://server-account
           predicates:
             - Path=/shop-account/**
           filters:
             - StripPrefix=1
-        - id: route_order
+        - id: server-order
           uri: lb://server-order
           predicates:
             - Path=/shop-order/**
           filters:
             - StripPrefix=1
-        - id: route_product
+        - id: server-product
           uri: lb://server-product
           predicates:
             - Path=/shop-product/**
           filters:
             - StripPrefix=1
-        - id: route_sso
+        - id: server-sso
           uri: lb://server-sso
           predicates:
             - Path=/shop-sso/**

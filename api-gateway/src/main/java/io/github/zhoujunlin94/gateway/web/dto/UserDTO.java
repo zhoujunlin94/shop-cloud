@@ -1,4 +1,4 @@
-package io.github.zhoujunlin94.gateway.feign.dto;
+package io.github.zhoujunlin94.gateway.web.dto;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

@@ -60,7 +60,7 @@ seata:
   service:
     # 虚拟组和分组的映射
     vgroup-mapping:
-      server-product-group: default
+      server-order-group: default
     # 分组和 Seata 服务的映射
     grouplist:
       default: 127.0.0.1:8091
