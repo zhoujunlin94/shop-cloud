@@ -22,7 +22,7 @@ public class SsoUserService {
     @Resource
     private WebClient.Builder webBuilder;
 
-    private final static String BASE_URL = "lb://server-sso";
+    private final static String BASE_URL = "http://server-sso";
 
     public Integer getUserId(String token) {
         try {
