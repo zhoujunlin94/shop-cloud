@@ -22,13 +22,12 @@ public class SsoUserService {
     @Resource
     private WebClient.Builder webBuilder;
 
-    private final static String BASE_URL = "http://server-sso";
+    private final static String BASE_URL = "lb://server-sso";
 
     public Integer getUserId(String token) {
         try {
-            Mono<JsonResponse<UserDTO>> result = webBuilder.baseUrl(BASE_URL).build()
-                    .get()
-                    .uri("/api/v1/user/getUser")
+            Mono<JsonResponse<UserDTO>> result = webBuilder.build()
+                    .get().uri(BASE_URL + "/api/v1/user/getUser")
                     .header("Authentication", token)
                     .retrieve()
                     .bodyToMono(new ParameterizedTypeReference<JsonResponse<UserDTO>>() {

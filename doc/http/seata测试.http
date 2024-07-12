@@ -32,7 +32,7 @@ Content-Type: application/json
 ### 3.1 事务正常提交
 POST http://127.0.0.1/shop-order/api/v1/order/createOrder
 Content-Type: application/x-www-form-urlencoded
-Authentication: ebccb25e-dee8-4e69-875c-dfb71c1a3d55
+Authentication: 69cbf366-30ba-42ce-9e83-f815d6829d71
 
 productId=1
 
@@ -40,7 +40,7 @@ productId=1
 ### 3.2 事务回滚(扣库存失败)
 POST http://127.0.0.1/shop-order/api/v1/order/createOrder
 Content-Type: application/x-www-form-urlencoded
-Authentication: ebccb25e-dee8-4e69-875c-dfb71c1a3d55
+Authentication: 69cbf366-30ba-42ce-9e83-f815d6829d71
 
 productId=1&number=200000
 
@@ -48,7 +48,7 @@ productId=1&number=200000
 ### 3.2 事务回滚(扣款失败)
 POST http://127.0.0.1/shop-order/api/v1/order/createOrder
 Content-Type: application/x-www-form-urlencoded
-Authentication: ebccb25e-dee8-4e69-875c-dfb71c1a3d55
+Authentication: 69cbf366-30ba-42ce-9e83-f815d6829d71
 
 productId=1&number=2000
 
