@@ -15,7 +15,6 @@ import io.seata.spring.annotation.GlobalTransactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Objects;
 
@@ -34,8 +33,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderHandler orderHandler;
 
     @Override
-    @GlobalTransactional
-    @Transactional(transactionManager = "orderTransactionManager", rollbackFor = Exception.class)
+    @GlobalTransactional(rollbackFor = Exception.class)
     public OrderDTO createOrder(Integer productId, Integer number, Integer userId) {
         log.info("[createOrder] 当前 XID: {}", RootContext.getXID());
         // find product rpc
