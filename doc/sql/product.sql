@@ -20,6 +20,7 @@ values ('小米', 200000, 5000),
        ('华为', 400000, 5000),
        ('苹果', 500000, 5000);
 
+drop table IF EXISTS `undo_log`;
 CREATE TABLE undo_log
 (
     id            BIGINT(20)   NOT NULL AUTO_INCREMENT,

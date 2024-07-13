@@ -18,7 +18,7 @@ CREATE TABLE `shop_account`
 insert into shop_account (user_id, balance)
 values (2, 250000);
 
-
+drop table IF EXISTS `undo_log`;
 CREATE TABLE undo_log
 (
     id            BIGINT(20)   NOT NULL AUTO_INCREMENT,
