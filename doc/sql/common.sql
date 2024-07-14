@@ -1,3 +1,7 @@
+-- 新建canal用户密码为canal且赋予相应权限
+grant select, replication slave, replication client on *.*
+    to 'canal'@'%' identified by 'canal';
+
 CREATE DATABASE IF NOT EXISTS `common` CHARACTER SET 'utf8mb4';
 USE `common`;
 
